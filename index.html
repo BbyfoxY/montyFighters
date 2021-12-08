@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Monty Fighters!</title>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        background-color: black;
+        font-family: monospace;
+        overflow: hidden;
+      }
+      /*
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      TOP BAR AHEAD      
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      */
+      #topBar {
+        background-image: url("src/topBarGradient.jpg");
+        height: 100px;
+        font-family: monospace;
+        z-index: 100;
+      }
+      #profileDiv {
+        margin-right: 10px;
+        width: 10%;
+        float: right;
+      }
+      #profile {
+        width: 100px;
+        height: 100px;
+      }
+      #usernameAndLvl {
+        margin-left: 10px;
+        color: cornsilk;
+        width: 400px;
+        float: left;
+      }
+      /*
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      LEFT BAR AHEAD
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      */
+      #leftBar {
+        background-image: url("src/topBarGradient.jpg");
+        float: left;
+        z-index: 100;
+        height: 550px;
+        width: 15%;
+        text-align: center;
+      }
+      /*
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      RIGHT BAR AHEAD
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      */
+      #rightBar {
+        background-image: url("src/topBarGradient.jpg");
+        float: right;
+        z-index: 100;
+        height: 550px;
+        width: 15%;
+        margin-right: -160px;
+        text-align: center;
+      }      
+      /*
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      MAIN PAGE AHEAD
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      */
+      #mainPage {
+        background-color: darkgray;
+        width: 70%;
+        z-index: 100;
+        height: 550px;
+        margin-left: 225.5px;
+        text-align: center;
+      }
+      #mainPage h1{
+        margin-top: 0px;
+      }      
+      #mainPage button {
+        width: 300px;
+        height: 100px;
+        font-family: monospace;
+        font-size: 25px;
+      }
+      /*
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      BOTTOM BAR AHEAD
+      SUSSY BAKA! GET OUTTT!
+      SUSSY BAKA! GET OUTTT!
+      */
+      #bottomBar {
+        background-image: url("src/topBarGradient.jpg");
+        width: 100%;
+        height: 100px;
+        margin-top: -18px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="topBar">
+      <div id = "usernameAndLvl">
+        <h1>PRESS ENTER TO SIGN IN</h1>
+      </div>
+      <div id = "profileDiv">
+        <img id = profile src = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/streams/2014/March/140317/2D274905391507-today-tech-grandmabetty-140317.jpg"></img>
+      </div>
+    </div>
+    <div id = "leftBar">
+      <img src = "src/cave-entrance (1).png" height = "100" width = "100"></img><br></br>
+      <img src = "src/spiked-dragon-head.png" height = "100" width = "100"></img><br></br>
+      <img src = "src/anvil-impact.png" height = "100" width = "100"></img><br></br>
+      <img src = "src/shopping-cart.png" height = "100" width = "100"></img><br></br>
+      <img src = "src/perspective-dice-six-faces-random.png" height = "50" width = "50"></img>
+    </div>
+    <div id = "rightBar">
+      <img src = "src/upgrade.png" height = "100" width = "100"></img><br></br>
+      <img src = "src/backpack.png" height = "100" width = "100"></img><br></br>
+      <img src = "src/discussion.png" height = "100" width = "100"></img>
+    </div>
+    <div id = "mainPage">
+      <h1>WELCOME!</h1><br></br>
+      <button onclick = "checkAccount();">ENTER THE GAME</button>
+    </div>
+    <div id = "bottomBar">
+      <h1>PROGRESS</h1>
+    </div>
+
+    <script>
+      var account;
+      //load password if you can
+      window.onload = function() {
+        loadPassword()
+      }
+      //check if player has an account
+      function checkAccount() {
+        if (account === undefined) {
+          account = prompt("Log-in or create your password", "\"12345\"");
+          savePassword();
+        } else if (account !== "undefined") {
+          //access the stuff
+        }
+      }
+      //save password to local storage
+      function savePassword() {
+        var password = {
+          password: account
+        };
+        localStorage.setItem("password", JSON.stringify(password));
+      }
+      //load password
+      function loadPassword() {
+        var savedPassword = JSON.parse(localStorage.getItem("password"));
+        if (typeof savedPassword.password !== undefined) {
+          account = savedPassword.password;
+        }
+      }
+    </script>
+  </body>
+</html>
