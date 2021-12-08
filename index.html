@@ -149,6 +149,9 @@
         if (account === undefined) {
           account = prompt("Log-in or create your password", "\"12345\"");
           savePassword();
+        } else if (account === null) {
+          account = prompt("Log-in or create your password", "\"12345\"");
+          savePassword();
         } else if (account !== "undefined") {
           //access the stuff
         }
